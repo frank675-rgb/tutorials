@@ -1,0 +1,42 @@
+OpenMediaVault setup:
+
+1)flash raspbian lite using 'raspberry pi imager'
+
+2)remove and re-insert micro-sd/sd card, create new files 'ssh' and 'wpa_supplicant.conf'
+
+3)open wpa_supplicant.conf in notepad, paste these lines (replace YOURSSID and YOURPASSWORD with your network name and password):
+
+country=UK
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+network={
+  ssid="YOURSSID"
+  scan_ssid=1
+  psk="YOURPASSWORD"
+  key_mgmt=WPA-PSK
+}
+
+4)save and close the file
+
+5)boot raspberry pi within wifi range of your network and open command line on a computer connected to the same network.
+
+6)run "ssh pi@'YOUR_PI'S_IP'" to connect to your raspberry pi, make sure to replace 'YOUR_PI'S_IP' with the ip address of your pi device.
+
+7)run sudo apt update
+
+8)run sudo apt upgrade
+
+9)run wget -O - https://raw.githubusercontent.com/OpenMediaVault-Plugin-Developers/installScript/master/install | sudo bash
+
+12)run "ssh pi@'YOUR_PI'S_IP'" to connect to your raspberry pi, make sure to replace 'YOUR_PI'S_IP' with the ip address of your pi device.
+
+13)run hostname -I
+
+14)With your Raspberry Pi’s local IP address, go to the following address in your web browser http://[PI_IPADDRESS]
+
+Adding a new Filesystem:
+
+1)plug in drive, click the “File Systems” option.
+
+2)Find your filesystem within the table and click it, then click the “Mount” button
+
